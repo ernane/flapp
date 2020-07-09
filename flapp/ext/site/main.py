@@ -1,5 +1,4 @@
-from flask import render_template
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 bp = Blueprint("site", __name__)
 
@@ -11,5 +10,4 @@ def index():
 
 @bp.route("/home")
 def home():
-    return render_template("home.html", page="Home")
-
+    return render_template("base.html", page="Home")

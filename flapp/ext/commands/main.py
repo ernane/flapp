@@ -8,4 +8,3 @@ import click
 def init(check=False):
     """Setup application"""
     click.echo("init")
-
