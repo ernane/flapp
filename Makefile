@@ -1,30 +1,32 @@
-clean:
-	@find ./ -name '*.pyc' -exec rm -f {} \;
-	@find ./ -name 'Thumbs.db' -exec rm -f {} \;
-	@find ./ -name '*~' -exec rm -f {} \;
-	rm -rf .cache
-	rm -rf build
-	rm -rf dist
-	rm -rf *.egg-info
-	rm -rf htmlcov
-	rm -rf .tox/
-	rm -rf docs/_build
-	rm -rf cover/
-	rm -rf .coverage
-	rm -rf .pytest_cache/
+.PHONY: clean-pyc clean-build clean
 
-install:
-	@find ./ -name '*.pyc' -exec rm -f {} \;
-	@find ./ -name 'Thumbs.db' -exec rm -f {} \;
-	@find ./ -name '*~' -exec rm -f {} \;
-	rm -rf .cache
-	rm -rf build
-	rm -rf dist
-	rm -rf *.egg-info
-	rm -rf htmlcov
-	rm -rf .tox/
-	rm -rf docs/_build
-	pip install -e .[dev] --upgrade --no-cache
+help:
+	@echo "clean - remove all build, test, coverage and Python artifacts"
+	@echo "clean-build - remove build artifacts"
+	@echo "clean-pyc - remove Python file artifacts"
+	@echo "lint - check style with flake8"
+
+clean: clean-build clean-pyc
+
+clean-build:
+	rm -fr build/
+	rm -fr dist/
+	rm -fr *.egg-info
+
+clean-pyc:
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
+	find . -name '__pycache__' -exec rm -fr {} +
+
+lint:
+	SKIP=no-commit-to-branch pre-commit run -a -v
+	flake8 flapp tests
 
 test:
-	pytest tests/ -v --cov=flapp
+	python setup.py test
+
+local:
+	pip install -e .[dev] --upgrade --no-cache
+
+install: clean local

@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 
 def read(filename):
@@ -13,4 +13,6 @@ setup(
     include_package_data=True,
     install_requires=read("requirements.txt"),
     extras_require={"dev": read("requirements-dev.txt")},
+    setup_requires=["pytest-runner"],
+    tests_require=["pytest", "pytest-cov", "pytest-flask"],
 )
