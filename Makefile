@@ -26,3 +26,8 @@ lint:
 
 test:
 	python setup.py test
+
+local:
+	pip install -e .[dev] --upgrade --no-cache
+
+install: clean local
