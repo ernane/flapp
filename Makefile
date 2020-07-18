@@ -5,6 +5,7 @@ help:
 	@echo "clean-build - remove build artifacts"
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "lint - check style with flake8"
+	@echo "test - package with pytest"
 
 clean: clean-build clean-pyc
 
@@ -18,15 +19,10 @@ clean-pyc:
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
+	@find . -iname '.coverage' -delete
 
 lint:
 	SKIP=no-commit-to-branch pre-commit run -a -v
-	flake8 flapp tests
 
 test:
 	python setup.py test
-
-local:
-	pip install -e .[dev] --upgrade --no-cache
-
-install: clean local
