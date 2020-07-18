@@ -15,4 +15,5 @@ setup(
     extras_require={"dev": read("requirements-dev.txt")},
     setup_requires=["pytest-runner"],
     tests_require=["pytest", "pytest-cov", "pytest-flask"],
+    python_requires=">=3.6",
 )
