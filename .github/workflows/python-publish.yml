@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.8]
 
     steps:
       - uses: actions/checkout@v2
@@ -26,3 +26,11 @@ jobs:
           make test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
+      - name: Deploy to heroku
+        uses: akhileshns/heroku-deploy@v3.2.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "flapp-api"
+          heroku_email: "ernane.sena@gmail.com"
+        env:
+          SECRET_KEY: ${{secrets.SECRET_KEY}}
