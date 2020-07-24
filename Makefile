@@ -25,7 +25,7 @@ lint:
 	SKIP=no-commit-to-branch pre-commit run -a -v
 
 test:
-	python setup.py test
+	export FLASK_ENV=test && python setup.py test
 
 local:
 	pip install -e .[dev] --upgrade --no-cache
