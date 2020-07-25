@@ -10,3 +10,4 @@ pytest-flask
 pytest-cov
 honcho
 pre-commit
+factory-boy
