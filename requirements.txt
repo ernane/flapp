@@ -1,4 +1,7 @@
 Flask
-python-dotenv
-gunicorn
 Flask-Admin
+flask-debugtoolbar
+Flask-Migrate
+gunicorn
+python-dotenv
+

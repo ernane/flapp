@@ -31,3 +31,9 @@ local:
 	pip install -e .[dev] --upgrade --no-cache
 
 install: clean local
+
+db-migrate:
+	flask db migrate
+
+db-upgrade:
+	flask db upgrade
