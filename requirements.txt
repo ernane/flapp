@@ -1,7 +1,8 @@
-Flask
-Flask-Admin
-flask-debugtoolbar
-Flask-Migrate
-gunicorn
-python-dotenv
+Flask==1.1.2
+Flask-Admin==1.5.6
+Flask-DebugToolbar==0.11.0
+Flask-Migrate==2.5.3
+gunicorn==20.0.4
+python-dotenv==0.14.0
+dynaconf==3.0.0
 
