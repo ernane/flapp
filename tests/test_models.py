@@ -1,12 +1,13 @@
 """Model unit tests."""
 from flapp.ext.db.models import Thing
 
-# from .factories import ThingFactory
-
 
 def test_get_by_id(db):
     """Get thing by ID."""
     thing = Thing(id=1, name="Thing A")
+    db.session.query(Thing).delete()
+    db.session.commit()
+
     db.session.add(thing)
     db.session.commit()
 

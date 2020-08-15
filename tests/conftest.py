@@ -4,13 +4,13 @@ from flapp.app import create_app
 from flapp.ext.db import db as _db
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def app():
     """Instance of Main flask app"""
     return create_app()
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def db(app):
     """Create database for the tests."""
     _db.app = app
