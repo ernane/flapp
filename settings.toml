@@ -1,7 +1,7 @@
 [default]
 DEBUG = false
 FLASK_ADMIN_SWATCH = "simplex"
-FLASK_ADMIN_NAME = "Flapp"
+FLASK_ADMIN_NAME = "Flapp - Prod"
 FLASK_ADMIN_TEMPLATE_MODE = "bootstrap3"
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 EXTENSIONS = [
