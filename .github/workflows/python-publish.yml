@@ -34,3 +34,6 @@ jobs:
           heroku_email: "ernane.sena@gmail.com"
         env:
           SECRET_KEY: ${{secrets.SECRET_KEY}}
+          FLASK_ENV: "production"
+          ENV_FOR_DYNACONF: "production"
+          FOO: "BAR"

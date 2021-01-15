@@ -1,3 +1,8 @@
-Flask
-python-dotenv
-gunicorn
+Flask==1.1.2
+Flask-Admin==1.5.6
+Flask-DebugToolbar==0.11.0
+Flask-Migrate==2.5.3
+gunicorn==20.0.4
+python-dotenv==0.14.0
+dynaconf==3.1.0
+psycopg2-binary==2.8.5
