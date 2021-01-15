@@ -1,14 +1,14 @@
 [default]
 DEBUG = false
 FLASK_ADMIN_SWATCH = "simplex"
-FLASK_ADMIN_NAME = "Flapp"
+FLASK_ADMIN_NAME = "Flapp - Prod"
 FLASK_ADMIN_TEMPLATE_MODE = "bootstrap3"
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 EXTENSIONS = [
     "flapp.ext.db:init_app",
-    "flapp.ext.site:init_app",
+    "flapp.ext.admin:init_app",
     "flapp.ext.cli:init_app",
-    "flapp.ext.admin:init_app"
+    "flapp.ext.site:init_app",
 ]
 
 [development]
